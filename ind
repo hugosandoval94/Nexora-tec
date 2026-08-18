@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDUPROJECT 2026 — Hugo Alexander Sandoval</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.project-extra{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-top:32px;
+  padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+.project-extra h4{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  opacity:.75;
+}
+.project-extra p{
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  line-height:1.5;
+  margin:0;
+}
+.project.light .project-extra{border-top-color:rgba(0,0,0,.12);}
+@media (max-width:720px){
+  .project-extra{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#inicio">EDUPROJECT <span>2026</span></a>
+  <nav id="nav">
+    <a class="active" href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#microbit">Micro:bit</a>
+    <a href="#python">Python</a>
+    <a href="#robot">Robot</a>
+    <a href="#lego">LEGO</a>
+    <a href="#pinza">Pinzas</a>
+  </nav>
+  <button class="menu" id="menu" aria-label="Abrir menú">☰</button>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-grid"></div>
+  <div class="hero-copy">
+    <p class="kicker">PROM 2026 · TECNOLOGÍA · ROBÓTICA · PROGRAMACIÓN</p>
+    <h1>EDUPROJECT<span>2026</span></h1>
+    <p class="lead">Una muestra interactiva de los proyectos que convierten ideas en movimiento, código y tecnología.</p>
+    <div class="student">
+      <div><small>ESTUDIANTE</small><strong>Hugo Alexander Sandoval</strong></div>
+      <div><small>CURSO</small><strong>11D</strong></div>
+    </div>
+    <a class="cta" href="#proyectos">Explorar proyectos <span>↘</span></a>
+  </div>
+  <div class="hero-card">
+    <div class="hero-card-top"><span>01—05</span><span>ARCHIVO DE PROYECTOS</span></div>
+    <div class="orbit"><div class="orbit-dot"></div><div class="orbit-core">NX</div></div>
+    <p>“No dejamos atrás lo vivido; llevamos cada aprendizaje hacia lo que viene.”</p>
+  </div>
+</section>
+
+<section class="intro" id="proyectos">
+  <div class="section-title">
+    <p class="eyebrow">01 / PROYECTOS</p>
+    <h2>Lo que construimos.</h2>
+    <p>Explora cada proyecto para conocer qué es, cómo funciona y probar una pequeña experiencia relacionada.</p>
+  </div>
+  <div class="project-menu">
+    <a href="#microbit"><span>01</span><b>Micro:bit</b><em>Electrónica + código</em></a>
+    <a href="#python"><span>02</span><b>Python</b><em>Programación</em></a>
+    <a href="#robot"><span>03</span><b>Seguidor de línea</b><em>Robótica autónoma</em></a>
+    <a href="#lego"><span>04</span><b>Cinta LEGO</b><em>Automatización</em></a>
+    <a href="#pinza"><span>05</span><b>Robot con pinzas</b><em>Movimiento</em></a>
+  </div>
+</section>
+
+<section class="project purple" id="microbit">
+  <div class="project-head">
+    <p class="eyebrow">02 / MICRO:BIT</p><h2>Pequeña placa.<br><span>Grandes posibilidades.</span></h2>
+  </div>
+  <div class="project-body">
+    <div class="info">
+      <h3>¿Qué es?</h3>
+      <p>micro:bit es una pequeña placa electrónica educativa diseñada para aprender programación, electrónica y creación de proyectos interactivos.</p>
+      <h3>¿Para qué sirve?</h3>
+      <p>Permite trabajar con botones, sensores, LEDs y otros componentes para crear prototipos y automatizaciones.</p>
+      <div class="flow"><span>ENTRADA</span><b>→</b><span>PROGRAMA</span><b>→</b><span>SALIDA</span></div>
+    </div>
+    <div class="mini-card">
+      <div class="card-label">MINI PROGRAMA</div>
+      <h3>Matriz LED</h3>
+      <div class="led-board" id="ledBoard"></div>
+      <div class="controls">
+        <button data-led="heart">Corazón</button><button data-led="smile">Sonrisa</button><button data-led="off">Apagar</button>
+      </div>
+      <pre>from microbit import *
+display.show(Image.HEART)</pre>
+    </div>
+  </div>
+  <div class="project-extra">
+    <div><h4>Nombre del proyecto</h4><p>Matriz LED interactiva con micro:bit</p></div>
+    <div><h4>Problema o necesidad</h4><p>Se identificó la necesidad de comprender de forma práctica cómo interactúan la electrónica y el código, ya que muchos conceptos de programación resultan abstractos si no se ven reflejados en un resultado físico e inmediato.</p></div>
+    <div><h4>Dificultades encontradas</h4><p>Al inicio costó entender la lógica de entrada-programa-salida y cómo traducir una idea (por ejemplo, un dibujo) en coordenadas dentro de la matriz de LEDs. También hubo que ajustar el código varias veces hasta lograr que las imágenes se mostraran correctamente.</p></div>
+    <div><h4>Conclusiones</h4><p>El proyecto permitió comprender de manera sencilla el ciclo entrada-proceso-salida, base de todo sistema electrónico programable, y sirvió como primer acercamiento práctico a la programación embebida.</p></div>
+  </div>
+</section>
+
+<section class="project light" id="python">
+  <div class="project-head">
+    <p class="eyebrow">03 / PYTHON</p><h2>Escribir instrucciones.<br><span>Ver resultados.</span></h2>
+  </div>
+  <div class="project-body">
+    <div class="info">
+      <h3>¿Qué es?</h3>
+      <p>Python es un lenguaje de programación utilizado para crear programas, automatizar tareas, trabajar con datos y desarrollar soluciones tecnológicas.</p>
+      <h3>¿Cómo funciona?</h3>
+      <p>El programador escribe instrucciones y el intérprete las procesa para producir una salida.</p>
+      <div class="tags"><span>Automatización</span><span>Datos</span><span>IA</span><span>Aplicaciones</span></div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-bar"><span></span><span></span><span></span><b>mini-lab.py</b></div>
+      <textarea id="code">print("Hola mundo")</textarea>
+      <div class="controls"><button class="run" id="run">▶ Ejecutar</button><button id="clear">Limpiar</button></div>
+      <div class="output"><small>SALIDA</small><pre id="output">&gt; esperando ejecución...</pre></div>
+      <div class="examples"><button data-code='print("Hola mundo")'>Hola mundo</button><button data-code='print(5 + 5)'>5 + 5</button><button data-code='print("NEXORA 2026")'>NEXORA</button></div>
+    </div>
+  </div>
+  <div class="project-extra">
+    <div><h4>Nombre del proyecto</h4><p>Mini laboratorio de Python</p></div>
+    <div><h4>Problema o necesidad</h4><p>Surgió de la necesidad de aprender a pensar de forma lógica y secuencial, una habilidad clave para resolver problemas con tecnología, y de tener un espacio para practicar y ver resultados de inmediato.</p></div>
+    <div><h4>Dificultades encontradas</h4><p>Se presentaron errores de sintaxis frecuentes al inicio y dificultad para entender por qué el programa no hacía lo esperado, lo que exigió revisar el código línea por línea hasta identificar el error.</p></div>
+    <div><h4>Conclusiones</h4><p>Se logró comprender la lógica básica de la programación en Python y la importancia de la precisión en el código, sentando las bases para proyectos de automatización y análisis de datos más complejos.</p></div>
+  </div>
+</section>
+
+<section class="project dark" id="robot">
+  <div class="project-head">
+    <p class="eyebrow">04 / ROBÓTICA</p><h2>Seguir una línea.<br><span>Tomar decisiones.</span></h2>
+  </div>
+  <div class="project-body image-project">
+    <div class="photo-wrap">
+      <img src="robot-seguidor.png" alt="Robot seguidor de línea">
+      <span>FOTO REAL · PROYECTO 03</span>
+    </div>
+    <div class="info">
+      <h3>¿Qué es?</h3><p>Es un robot que utiliza sensores para detectar una línea y ajustar sus motores para seguirla automáticamente.</p>
+      <h3>¿Para qué sirve?</h3><p>Es una práctica de robótica, sensores, programación y sistemas autónomos.</p>
+      <div class="flow"><span>SENSORES</span><b>→</b><span>CONTROL</span><b>→</b><span>MOTORES</span></div>
+    </div>
+  </div>
+  <div class="game">
+    <div class="game-top"><b>MINI JUEGO · SIGUE LA RUTA</b><span>Puntos: <strong id="score">0</strong></span></div>
+    <canvas id="game" width="900" height="360"></canvas>
+    <p>Usa ← → o A/D para mantener el robot sobre la línea.</p>
+    <button id="restart">Reiniciar recorrido</button>
+  </div>
+  <div class="project-extra">
+    <div><h4>Nombre del proyecto</h4><p>Robot seguidor de línea</p></div>
+    <div><h4>Problema o necesidad</h4><p>Nació de la necesidad de explorar cómo un sistema puede tomar decisiones por sí mismo a partir de la información que recibe del entorno, sin intervención humana directa, aplicado a la robótica autónoma.</p></div>
+    <div><h4>Dificultades encontradas</h4><p>La calibración de los sensores fue el mayor reto, ya que la luz ambiental afectaba las lecturas; también fue necesario ajustar la velocidad de los motores para lograr giros suaves sin perder la línea.</p></div>
+    <div><h4>Conclusiones</h4><p>Se comprendió el funcionamiento del ciclo sensores-control-motores y la importancia de la calibración para lograr un comportamiento autónomo estable y confiable.</p></div>
+  </div>
+</section>
+
+<section class="project warm" id="lego">
+  <div class="project-head">
+    <p class="eyebrow">05 / MECANISMOS</p><h2>Una cinta hecha con LEGO.<br><span>Una idea industrial.</span></h2>
+  </div>
+  <div class="project-body image-project">
+    <div class="info">
+      <h3>¿Qué es?</h3><p>Una cinta transportadora mueve objetos de forma continua entre diferentes puntos.</p>
+      <h3>¿Cómo funciona?</h3><p>Un motor genera movimiento y los mecanismos lo transmiten a la banda, permitiendo transportar objetos.</p>
+      <div class="flow"><span>MOTOR</span><b>→</b><span>MECANISMO</span><b>→</b><span>BANDA</span></div>
+    </div>
+    <div class="photo-wrap">
+      <img src="cinta-lego.png" alt="Cinta transportadora LEGO">
+      <span>FOTO REAL · PROYECTO 04</span>
+    </div>
+  </div>
+  <div class="belt">
+    <div class="belt-head"><b>MINI SIMULADOR</b><span>Objetos: <strong id="count">0</strong></span></div>
+    <div class="belt-track" id="beltTrack"><i></i><i></i><i></i><i></i></div>
+    <div class="controls"><button class="run" id="beltStart">▶ Iniciar</button><button id="beltPause">Pausar</button><button id="beltReset">Reiniciar</button><label>Velocidad <input id="speed" type="range" min="1" max="10" value="5"></label></div>
+  </div>
+  <div class="project-extra">
+    <div><h4>Nombre del proyecto</h4><p>Cinta transportadora LEGO</p></div>
+    <div><h4>Problema o necesidad</h4><p>Se buscó representar, a pequeña escala y con materiales accesibles, un proceso industrial real como el transporte automatizado de objetos, algo común en fábricas y líneas de producción.</p></div>
+    <div><h4>Dificultades encontradas</h4><p>Hubo dificultades para lograr que la banda se moviera de forma uniforme sin trabarse, así como para ensamblar los engranajes de manera que transmitieran el movimiento correctamente desde el motor.</p></div>
+    <div><h4>Conclusiones</h4><p>Se entendió cómo un motor y un conjunto de mecanismos simples pueden automatizar tareas repetitivas, un principio aplicado ampliamente en procesos industriales reales.</p></div>
+  </div>
+</section>
+
+<section class="project blue" id="pinza">
+  <div class="project-head">
+    <p class="eyebrow">06 / ROBOT CON PINZAS</p><h2>Controlar el movimiento.<br><span>Manipular con precisión.</span></h2>
+  </div>
+  <div class="project-body image-project">
+    <div class="photo-wrap">
+      <img src="robot-pinzas.png" alt="Robot con pinzas">
+      <span>FOTO REAL · PROYECTO 05</span>
+    </div>
+    <div class="info">
+      <h3>¿Qué es?</h3><p>Es un sistema robótico equipado con un mecanismo de agarre para sujetar y mover objetos.</p>
+      <h3>¿Para qué sirve?</h3><p>Se relaciona con automatización, ensamblaje, clasificación y manipulación de objetos.</p>
+      <div class="flow"><span>CONTROL</span><b>→</b><span>BRAZO</span><b>→</b><span>PINZA</span></div>
+    </div>
+  </div>
+  <div class="gripper-lab">
+    <div class="gripper-stage">
+      <div class="arm"></div><div class="jaw left"></div><div class="jaw right"></div><div class="object" id="gripObject"></div>
+    </div>
+    <div class="gripper-controls">
+      <b>MINI PROGRAMA · PINZA</b>
+      <p id="gripStatus">Estado: abierta</p>
+      <button id="openGrip">Abrir pinza</button><button id="closeGrip">Cerrar pinza</button><button id="grabGrip">Agarrar objeto</button><button id="dropGrip">Soltar objeto</button>
+    </div>
+  </div>
+  <div class="project-extra">
+    <div><h4>Nombre del proyecto</h4><p>Robot con pinzas</p></div>
+    <div><h4>Problema o necesidad</h4><p>Respondió a la necesidad de entender cómo un robot puede manipular objetos con precisión, una función esencial en tareas de ensamblaje, clasificación y automatización industrial.</p></div>
+    <div><h4>Dificultades encontradas</h4><p>Coordinar el movimiento del brazo con el cierre y apertura de la pinza en el momento justo fue complejo, así como evitar que el objeto se soltara o se aplicara demasiada fuerza al sujetarlo.</p></div>
+    <div><h4>Conclusiones</h4><p>Se comprendió la importancia de la sincronización entre control, brazo y pinza para lograr una manipulación precisa, un principio clave en la automatización y la robótica industrial.</p></div>
+  </div>
+</section>
+
+<section class="final">
+  <p class="eyebrow">07 / CIERRE</p>
+  <h2>Lo que aprendimos<br><span>también se queda.</span></h2>
+  <div class="skills"><span>Programación</span><span>Electrónica</span><span>Robótica</span><span>Automatización</span><span>Creatividad</span></div>
+  <p class="final-quote">“Cada proyecto fue una pieza del camino; ahora comienza la siguiente etapa.”</p>
+  <strong>Hugo Alexander Sandoval · 11D · PROM 2026</strong>
+</section>
+</main>
+
+<footer><b>NEXORA 2026</b><span>Hugo Alexander Sandoval · 11D</span><span>Prom 2026</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
