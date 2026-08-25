@@ -52,8 +52,50 @@ const lab=$(".gripper-lab"),status=$("#gripStatus");
 function grip(state){lab.classList.toggle("closed",state==="closed"||state==="grabbed");lab.classList.toggle("grabbed",state==="grabbed");status.textContent="Estado: "+({open:"abierta",closed:"cerrada",grabbed:"objeto agarrado"}[state]||"abierta")}
 $("#openGrip").onclick=()=>grip("open");$("#closeGrip").onclick=()=>grip("closed");$("#grabGrip").onclick=()=>grip("grabbed");$("#dropGrip").onclick=()=>grip("open");
 
-const visitorCount=$("#visitorCount"),badgeCore=$("#badgeCore");
-$("#addVisitor")?.addEventListener("click",()=>{visitorCount.textContent=+visitorCount.textContent+1;badgeCore.classList.remove("bump");void badgeCore.offsetWidth;badgeCore.classList.add("bump")});
-$("#resetVisitor")?.addEventListener("click",()=>visitorCount.textContent=0);
+const visitorCount=$("#visitorCount"),badgeCore=$("#badgeCore"),quizQuestion=$("#quizQuestion"),quizOptions=$("#quizOptions"),quizFeedback=$("#quizFeedback");
+
+const quizBank=[
+{q:'Un visitante pregunta: "¿Qué proyecto usa sensores para seguir una línea sin ayuda de una persona?"',opts:["Cinta transportadora LEGO","Robot seguidor de línea","Robot con pinzas"],correct:1},
+{q:'Un visitante pregunta: "¿Con qué lenguaje se programó el mini laboratorio de código?"',opts:["Python","HTML","C++"],correct:0},
+{q:'Un visitante pregunta: "¿Qué placa electrónica se usó para el sistema de la matriz LED?"',opts:["Arduino Uno","Raspberry Pi","micro:bit"],correct:2},
+{q:'Un visitante pregunta: "¿Qué mecanismo transporta objetos de un punto a otro de forma continua?"',opts:["Robot con pinzas","Cinta transportadora LEGO","Robot esquiva obstáculos"],correct:1},
+{q:'Un visitante pregunta: "¿Qué robot sujeta y mueve objetos usando un mecanismo de agarre?"',opts:["Robot con pinzas","Robot seguidor de línea","Micro:bit"],correct:0},
+{q:'Un visitante pregunta: "¿Qué robot recorre una pista de conos tomando decisiones para no chocar?"',opts:["Cinta transportadora LEGO","Robot esquiva obstáculos","Mini laboratorio de Python"],correct:1},
+];
+let quizIndex=-1;
+
+function bumpBadge(){badgeCore.classList.remove("bump");void badgeCore.offsetWidth;badgeCore.classList.add("bump")}
+
+function loadQuiz(){
+  quizIndex=(quizIndex+1)%quizBank.length;
+  const item=quizBank[quizIndex];
+  quizQuestion.textContent=item.q;
+  quizFeedback.textContent="\u00a0";
+  quizOptions.innerHTML="";
+  item.opts.forEach((opt,i)=>{
+    const b=document.createElement("button");
+    b.textContent=opt;
+    b.onclick=()=>answerQuiz(i,item.correct,b);
+    quizOptions.appendChild(b);
+  });
+}
+
+function answerQuiz(i,correctIndex,btn){
+  [...quizOptions.children].forEach(b=>b.disabled=true);
+  if(i===correctIndex){
+    btn.classList.add("correct");
+    quizFeedback.textContent="¡Correcto! El visitante quedó satisfecho.";
+    visitorCount.textContent=+visitorCount.textContent+1;
+    bumpBadge();
+  }else{
+    btn.classList.add("wrong");
+    quizOptions.children[correctIndex].classList.add("correct");
+    quizFeedback.textContent="Casi. La respuesta correcta se resalta arriba.";
+  }
+  setTimeout(loadQuiz,1600);
+}
+
+loadQuiz();
+$("#resetVisitor")?.addEventListener("click",()=>{visitorCount.textContent=0;quizIndex=-1;loadQuiz()});
 
 document.querySelectorAll("img").forEach(img=>img.addEventListener("error",()=>img.style.background="#ddd"));
