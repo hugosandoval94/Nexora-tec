@@ -52,4 +52,8 @@ const lab=$(".gripper-lab"),status=$("#gripStatus");
 function grip(state){lab.classList.toggle("closed",state==="closed"||state==="grabbed");lab.classList.toggle("grabbed",state==="grabbed");status.textContent="Estado: "+({open:"abierta",closed:"cerrada",grabbed:"objeto agarrado"}[state]||"abierta")}
 $("#openGrip").onclick=()=>grip("open");$("#closeGrip").onclick=()=>grip("closed");$("#grabGrip").onclick=()=>grip("grabbed");$("#dropGrip").onclick=()=>grip("open");
 
+const visitorCount=$("#visitorCount"),badgeCore=$("#badgeCore");
+$("#addVisitor")?.addEventListener("click",()=>{visitorCount.textContent=+visitorCount.textContent+1;badgeCore.classList.remove("bump");void badgeCore.offsetWidth;badgeCore.classList.add("bump")});
+$("#resetVisitor")?.addEventListener("click",()=>visitorCount.textContent=0);
+
 document.querySelectorAll("img").forEach(img=>img.addEventListener("error",()=>img.style.background="#ddd"));
